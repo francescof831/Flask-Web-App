@@ -60,7 +60,7 @@ def sign_up():
             new_user = User(email=email, first_name=first_name, password=generate_password_hash(password1, method='sha256'))
             db.session.add(new_user)
             db.session.commit()
-            login_user(user, remember=True)
+            login_user(new_user, remember=True)
             flash('Account created.', category='success')
             return redirect(url_for('views.home')) #views.py file, home function. If the route for the page ever changes, it will pick it up
 
